@@ -1,0 +1,75 @@
+================================================================================
+TP - Courbe de sensibilité au bruit (Noise Sensitivity Curve)
+Guide des étapes pour répondre aux consignes
+================================================================================
+
+OBJECTIF
+--------
+Étudier comment la performance d'un modèle de prédiction se dégrade lorsque
+l'on ajoute du bruit (erreur de mesure) sur une ou plusieurs features numériques.
+
+
+ÉTAPES POUR RÉPONDRE AUX CONSIGNES
+----------------------------------
+
+1. FAIRE UNE PRÉDICTION PUIS BRUITER UNE FEATURE NUMÉRIQUE
+   - Charger le jeu de données nettoyé et le modèle entraîné (ex. modèle "smoker").
+   - Préparer X_test, y_test avec le même split que l'entraînement (random_state=42).
+   - Choisir une feature numérique (ex. pack_years, cigarettes_per_day).
+   - Faire une prédiction de base (sans bruit) sur X_test.
+   - Définir le bruit : bruit = (pourcentage / 100) × écart-type(feature) × N(0,1).
+   - Créer X_noisy en copiant X_test et en ajoutant ce bruit à la feature choisie.
+   - Refaire une prédiction sur X_noisy et comparer les métriques.
+
+2. APPLIQUER SUCCESSIVEMENT 1%, 3%, 5%, 10% ET 20% DE L'ÉCART-TYPE EN BRUIT
+   - Calculer l'écart-type de la feature sur les données (ex. X_test).
+   - Pour chaque niveau : 0%, 1%, 3%, 5%, 10%, 20% :
+     * Générer un bruit gaussien : (pct/100) * std * np.random.randn(n).
+     * Ajouter ce bruit à la feature (sur une copie de X_test).
+     * Garder le même seed pour reproductibilité si besoin.
+
+3. CALCULER LA MÉTRIQUE DE PERFORMANCE POUR CHAQUE NIVEAU
+   - Pour chaque niveau de bruit, prédire sur X_noisy et comparer à y_test.
+   - Métriques utiles :
+     * MSE (Mean Squared Error) : pour la courbe "Noise sensitivity".
+     * F1-score : pour les modèles de classification (binaire).
+     * Optionnel : accuracy, precision, recall.
+   - Construire un tableau : Bruit % | MSE | F1-score (et autres).
+
+4. TRACER LA COURBE "NOISE SENSITIVITY CURVE"
+   - En abscisse : le pourcentage de bruit (0, 1, 3, 5, 10, 20).
+   - En ordonnée : la MSE (évolution de l'erreur quadratique moyenne).
+   - Interprétation : plus la courbe monte vite, plus le modèle est sensible
+     au bruit sur cette feature.
+
+5. RECOMMENCER POUR LES TROIS FEATURES LES PLUS CORRÉLÉES
+   - Calculer les corrélations (en valeur absolue) entre chaque feature
+     numérique et la variable cible (ex. smoker ou lung_cancer_risk).
+   - Sélectionner les 3 features numériques les plus corrélées.
+   - Pour chacune de ces 3 features, répéter les étapes 2 à 4.
+   - Tracer une courbe par feature (ou toutes sur le même graphique) pour
+     comparer la sensibilité au bruit selon la feature.
+
+
+FICHIERS DU PROJET
+------------------
+- Script principal : scripts/noise_sensitivity_curve.py
+- Données : data/processed/lung_cancer_cleaned.csv
+- Modèle utilisé : models/model_smoker.pkl
+- Courbe générée : docs/visualizations/noise_sensitivity/noise_sensitivity_curve.png
+
+
+COMMANDE POUR EXÉCUTER LE TP
+----------------------------
+  python scripts/noise_sensitivity_curve.py
+
+(À exécuter depuis la racine du projet : cours-documentation)
+
+
+INTERPRÉTATION RAPIDE
+---------------------
+- Une courbe qui reste plate : le modèle est peu sensible au bruit sur cette feature.
+- Une courbe qui monte fortement : le modèle dépend beaucoup de cette feature ;
+  des erreurs de mesure sur celle-ci dégradent vite les prédictions.
+
+================================================================================
