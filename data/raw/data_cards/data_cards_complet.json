@@ -1,0 +1,440 @@
+{
+  "metadata": {
+    "dataset_name": "Lung Cancer Risk Dataset",
+    "version": "1.0",
+    "creation_date": "2026-01-09T10:50:19.379993",
+    "source": "C:\\Users\\Martin\\Documents\\travail\\master\\doc\\data\\raw\\lung_cancer.csv",
+    "description": "Dataset pour l'analyse du risque de cancer du poumon basé sur des facteurs démographiques, environnementaux et cliniques",
+    "license": "À définir",
+    "citation": "À définir"
+  },
+  "statistics": {
+    "total_samples": 5000,
+    "total_features": 30,
+    "target_variable": "lung_cancer_risk",
+    "class_distribution": {
+      "low_risk": 3756,
+      "high_risk": 1244,
+      "imbalance_ratio": 3.0192926045016075
+    },
+    "missing_data": {
+      "total_missing": 0,
+      "columns_with_missing": []
+    }
+  },
+  "variables": {
+    "age": {
+      "type": "integer",
+      "description": "Age du patient en années",
+      "unit": "années",
+      "range": [
+        18,
+        90
+      ],
+      "missing_values": 0
+    },
+    "gender": {
+      "type": "categorical",
+      "description": "Genre du patient (0=Femme, 1=Homme)",
+      "values": {
+        "0": "Femme",
+        "1": "Homme"
+      },
+      "distribution": {
+        "0": 2559,
+        "1": 2441
+      },
+      "missing_values": 0
+    },
+    "education_years": {
+      "type": "integer",
+      "description": "Nombre d'années d'éducation",
+      "unit": "années",
+      "range": [
+        5,
+        20
+      ],
+      "missing_values": 0
+    },
+    "income_level": {
+      "type": "categorical",
+      "description": "Niveau de revenu (1=Faible, 2=Moyen, 3=Élevé, 4=Très élevé)",
+      "values": {
+        "1": "Faible",
+        "2": "Moyen",
+        "3": "Élevé",
+        "4": "Très élevé"
+      },
+      "distribution": {
+        "3": 1736,
+        "2": 1706,
+        "1": 733,
+        "4": 706,
+        "5": 119
+      },
+      "missing_values": 0
+    },
+    "smoker": {
+      "type": "binary",
+      "description": "Statut fumeur (0=Non-fumeur, 1=Fumeur)",
+      "values": {
+        "0": "Non-fumeur",
+        "1": "Fumeur"
+      },
+      "distribution": {
+        "0": 2726,
+        "1": 2274
+      },
+      "missing_values": 0
+    },
+    "smoking_years": {
+      "type": "integer",
+      "description": "Nombre d'années de tabagisme",
+      "unit": "années",
+      "range": [
+        0,
+        52
+      ],
+      "missing_values": 0
+    },
+    "cigarettes_per_day": {
+      "type": "integer",
+      "description": "Nombre de cigarettes par jour",
+      "unit": "cigarettes/jour",
+      "range": [
+        0,
+        44
+      ],
+      "missing_values": 0
+    },
+    "pack_years": {
+      "type": "integer",
+      "description": "Paquets-années (mesure cumulative d'exposition au tabac)",
+      "unit": "paquets-années",
+      "range": [
+        0,
+        60
+      ],
+      "missing_values": 0
+    },
+    "passive_smoking": {
+      "type": "binary",
+      "description": "Exposition au tabagisme passif (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 3262,
+        "1": 1738
+      },
+      "missing_values": 0
+    },
+    "air_pollution_index": {
+      "type": "continuous",
+      "description": "Indice de pollution de l'air",
+      "unit": "index",
+      "range": [
+        20.0,
+        130.0
+      ],
+      "mean": 64.2788,
+      "std": 19.479809114892028,
+      "missing_values": 0
+    },
+    "occupational_exposure": {
+      "type": "binary",
+      "description": "Exposition professionnelle à des toxiques (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 3746,
+        "1": 1254
+      },
+      "missing_values": 0
+    },
+    "radon_exposure": {
+      "type": "binary",
+      "description": "Exposition au radon (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 4276,
+        "1": 724
+      },
+      "missing_values": 0
+    },
+    "family_history_cancer": {
+      "type": "binary",
+      "description": "Antécédents familiaux de cancer (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 3983,
+        "1": 1017
+      },
+      "missing_values": 0
+    },
+    "copd": {
+      "type": "binary",
+      "description": "BPCO (Bronchopneumopathie chronique obstructive) (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 4203,
+        "1": 797
+      },
+      "missing_values": 0
+    },
+    "asthma": {
+      "type": "binary",
+      "description": "Asthme (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 4263,
+        "1": 737
+      },
+      "missing_values": 0
+    },
+    "previous_tb": {
+      "type": "binary",
+      "description": "Antécédents de tuberculose (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 4543,
+        "1": 457
+      },
+      "missing_values": 0
+    },
+    "chronic_cough": {
+      "type": "binary",
+      "description": "Toux chronique (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 4137,
+        "1": 863
+      },
+      "missing_values": 0
+    },
+    "chest_pain": {
+      "type": "binary",
+      "description": "Douleur thoracique (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 3745,
+        "1": 1255
+      },
+      "missing_values": 0
+    },
+    "shortness_of_breath": {
+      "type": "binary",
+      "description": "Essoufflement (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 3997,
+        "1": 1003
+      },
+      "missing_values": 0
+    },
+    "fatigue": {
+      "type": "binary",
+      "description": "Fatigue (0=Non, 1=Oui)",
+      "values": {
+        "0": "Non",
+        "1": "Oui"
+      },
+      "distribution": {
+        "0": 3007,
+        "1": 1993
+      },
+      "missing_values": 0
+    },
+    "bmi": {
+      "type": "continuous",
+      "description": "Indice de masse corporelle",
+      "unit": "kg/m²",
+      "range": [
+        16.0,
+        37.0
+      ],
+      "mean": 23.6048,
+      "std": 3.9372220287228776,
+      "missing_values": 0
+    },
+    "oxygen_saturation": {
+      "type": "continuous",
+      "description": "Saturation en oxygène",
+      "unit": "%",
+      "range": [
+        85.0,
+        100.0
+      ],
+      "mean": 96.0892,
+      "std": 3.4123851239927316,
+      "missing_values": 0
+    },
+    "fev1_x10": {
+      "type": "continuous",
+      "description": "Volume expiratoire maximal en 1 seconde (multiplié par 10)",
+      "unit": "L x 10",
+      "range": [
+        5.0,
+        37.0
+      ],
+      "mean": 31.4758,
+      "std": 5.213679204762221,
+      "missing_values": 0
+    },
+    "crp_level": {
+      "type": "continuous",
+      "description": "Niveau de protéine C-réactive",
+      "unit": "mg/L",
+      "range": [
+        0.0,
+        33.0
+      ],
+      "mean": 4.5936,
+      "std": 5.333566201490813,
+      "missing_values": 0
+    },
+    "xray_abnormal": {
+      "type": "binary",
+      "description": "Radiographie anormale (0=Normal, 1=Anormal)",
+      "values": {
+        "0": "Normal",
+        "1": "Anormal"
+      },
+      "distribution": {
+        "0": 3993,
+        "1": 1007
+      },
+      "missing_values": 0
+    },
+    "exercise_hours_per_week": {
+      "type": "continuous",
+      "description": "Heures d'exercice par semaine",
+      "unit": "heures/semaine",
+      "range": [
+        0.0,
+        10.0
+      ],
+      "mean": 2.5804,
+      "std": 1.8341779307734425,
+      "missing_values": 0
+    },
+    "diet_quality": {
+      "type": "categorical",
+      "description": "Qualité de l'alimentation (1=Faible, 2=Moyenne, 3=Bonne, 4=Excellente, 5=Très excellente)",
+      "values": {
+        "1": "Faible",
+        "2": "Moyenne",
+        "3": "Bonne",
+        "4": "Excellente",
+        "5": "Très excellente"
+      },
+      "distribution": {
+        "3": 1746,
+        "2": 1689,
+        "1": 774,
+        "4": 671,
+        "5": 120
+      },
+      "missing_values": 0
+    },
+    "alcohol_units_per_week": {
+      "type": "continuous",
+      "description": "Unités d'alcool par semaine",
+      "unit": "unités/semaine",
+      "range": [
+        0.0,
+        23.0
+      ],
+      "mean": 5.885,
+      "std": 4.423899770319799,
+      "missing_values": 0
+    },
+    "healthcare_access": {
+      "type": "categorical",
+      "description": "Accès aux soins de santé (1=Très limité, 2=Limité, 3=Moyen, 4=Bon)",
+      "values": {
+        "1": "Très limité",
+        "2": "Limité",
+        "3": "Moyen",
+        "4": "Bon"
+      },
+      "distribution": {
+        "3": 1768,
+        "2": 1683,
+        "1": 769,
+        "4": 655,
+        "5": 125
+      },
+      "missing_values": 0
+    },
+    "lung_cancer_risk": {
+      "type": "binary",
+      "description": "Risque de cancer du poumon (variable cible) (0=Faible risque, 1=Risque élevé)",
+      "values": {
+        "0": "Faible risque",
+        "1": "Risque élevé"
+      },
+      "distribution": {
+        "0": 3756,
+        "1": 1244
+      },
+      "missing_values": 0
+    }
+  },
+  "biases": {
+    "gender_balance": {
+      "description": "Distribution du genre dans le dataset",
+      "distribution": {
+        "0": 2559,
+        "1": 2441
+      },
+      "potential_bias": "À vérifier si la distribution reflète la population réelle"
+    },
+    "age_distribution": {
+      "description": "Distribution de l'âge",
+      "mean": 54.5664,
+      "std": 11.932730997295243,
+      "potential_bias": "Dataset peut être biaisé vers certaines tranches d'âge"
+    },
+    "smoking_distribution": {
+      "description": "Distribution des fumeurs vs non-fumeurs",
+      "distribution": {
+        "0": 2726,
+        "1": 2274
+      },
+      "potential_bias": "Proportion de fumeurs peut ne pas refléter la population générale"
+    }
+  },
+  "data_quality": {
+    "completeness": 100.0,
+    "duplicates": 0,
+    "outliers": "À analyser"
+  }
+}

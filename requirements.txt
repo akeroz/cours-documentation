@@ -1,0 +1,29 @@
+# Requirements pour le projet Lung Cancer Risk
+# Installation: pip install -r requirements.txt
+
+# Manipulation de données
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Conversion et validation XML
+lxml>=4.9.0
+
+# Génération de métadonnées
+pyyaml>=6.0
+
+# Analyse et visualisation (pour phases futures)
+scikit-learn>=1.2.0
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# Modélisation avancée (pour phases futures)
+xgboost>=1.7.0
+
+# Dashboard (pour phases futures)
+streamlit>=1.25.0
+
+# API (pour phases futures)
+flask>=2.3.0
+# ou
+# fastapi>=0.100.0
+# uvicorn>=0.23.0

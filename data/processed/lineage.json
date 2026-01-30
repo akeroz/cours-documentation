@@ -1,0 +1,103 @@
+{
+  "date_creation": "2026-01-09T11:36:34.959147",
+  "source": "C:\\Users\\arthur\\Documents\\EPSI-new\\M2\\IA\\documentation\\TP_doc_lung_cancer-main\\TP_doc_lung_cancer-main\\data\\raw\\lung_cancer.csv",
+  "etapes": [
+    {
+      "etape": "verification_valeurs_manquantes",
+      "date": "2026-01-09T11:36:34.977172",
+      "resultat": "Aucune valeur manquante",
+      "action": "Aucune action"
+    },
+    {
+      "etape": "suppression_doublons",
+      "date": "2026-01-09T11:36:34.980248",
+      "resultat": "Aucun doublon",
+      "action": "Aucune action"
+    },
+    {
+      "etape": "detection_valeurs_aberrantes",
+      "date": "2026-01-09T11:36:35.005815",
+      "resultat": "Valeurs aberrantes détectées dans 3 variables",
+      "action": "Conservation des valeurs (nettoyage sommaire)",
+      "details": {
+        "pack_years": {
+          "nombre": 50,
+          "pourcentage": 1.0,
+          "borne_inf": -30.0,
+          "borne_sup": 40.0
+        },
+        "fev1_x10": {
+          "nombre": 57,
+          "pourcentage": 1.14,
+          "borne_inf": 15.0,
+          "borne_sup": 50.0
+        },
+        "crp_level": {
+          "nombre": 27,
+          "pourcentage": 0.54,
+          "borne_inf": -17.0,
+          "borne_sup": 25.0
+        }
+      }
+    },
+    {
+      "etape": "normalisation",
+      "date": "2026-01-09T11:36:35.015673",
+      "resultat": "15 variables normalisées",
+      "action": "StandardScaler.fit_transform()",
+      "variables": [
+        "age",
+        "education_years",
+        "income_level",
+        "smoking_years",
+        "cigarettes_per_day",
+        "pack_years",
+        "air_pollution_index",
+        "bmi",
+        "oxygen_saturation",
+        "fev1_x10",
+        "crp_level",
+        "exercise_hours_per_week",
+        "diet_quality",
+        "alcohol_units_per_week",
+        "healthcare_access"
+      ]
+    }
+  ],
+  "transformations": {
+    "normalisation": {
+      "methode": "StandardScaler (sklearn)",
+      "variables_normalisees": [
+        "age",
+        "education_years",
+        "income_level",
+        "smoking_years",
+        "cigarettes_per_day",
+        "pack_years",
+        "air_pollution_index",
+        "bmi",
+        "oxygen_saturation",
+        "fev1_x10",
+        "crp_level",
+        "exercise_hours_per_week",
+        "diet_quality",
+        "alcohol_units_per_week",
+        "healthcare_access"
+      ],
+      "nombre_variables": 15,
+      "description": "Normalisation z-score: (x - mean) / std"
+    }
+  },
+  "statistiques_avant": {
+    "nombre_lignes": 5000,
+    "nombre_colonnes": 30,
+    "valeurs_manquantes": 0,
+    "lignes_dupliquees": 0
+  },
+  "statistiques_apres": {
+    "nombre_lignes": 5000,
+    "nombre_colonnes": 30,
+    "valeurs_manquantes": 0,
+    "lignes_dupliquees": 0
+  }
+}

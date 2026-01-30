@@ -1,0 +1,497 @@
+<?xml version="1.0" ?>
+<lung_cancer_dataset>
+  <metadata>
+    <source_file>C:\Users\Martin\Documents\travail\master\doc\data\raw\lung_cancer.csv</source_file>
+    <conversion_date>2026-01-09T10:57:08.140040</conversion_date>
+    <format_version>2.0</format_version>
+    <description>Dataset informatif avec métadonnées et statistiques</description>
+    <dataset_info>
+      <total_patients>5000</total_patients>
+      <total_variables>30</total_variables>
+      <target_variable>lung_cancer_risk</target_variable>
+      <missing_values>0</missing_values>
+      <duplicates>0</duplicates>
+    </dataset_info>
+  </metadata>
+  <statistics>
+    <outcome_distribution>
+      <low_risk count="3756" percentage="75.12%"/>
+      <high_risk count="1244" percentage="24.88%"/>
+      <balance_ratio>3.02:1</balance_ratio>
+    </outcome_distribution>
+  </statistics>
+  <variables_statistics>
+    <variable name="age">
+      <type>numeric</type>
+      <mean>54.57</mean>
+      <median>55.00</median>
+      <std>11.93</std>
+      <min>18.00</min>
+      <max>90.00</max>
+      <correlation_with_target>0.0835</correlation_with_target>
+    </variable>
+    <variable name="gender">
+      <type>numeric</type>
+      <mean>0.49</mean>
+      <median>0.00</median>
+      <std>0.50</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.0247</correlation_with_target>
+    </variable>
+    <variable name="education_years">
+      <type>numeric</type>
+      <mean>11.51</mean>
+      <median>11.00</median>
+      <std>2.95</std>
+      <min>5.00</min>
+      <max>20.00</max>
+      <correlation_with_target>-0.0125</correlation_with_target>
+    </variable>
+    <variable name="income_level">
+      <type>numeric</type>
+      <mean>2.55</mean>
+      <median>3.00</median>
+      <std>0.98</std>
+      <min>1.00</min>
+      <max>5.00</max>
+      <correlation_with_target>-0.0036</correlation_with_target>
+    </variable>
+    <variable name="smoker">
+      <type>numeric</type>
+      <mean>0.45</mean>
+      <median>0.00</median>
+      <std>0.50</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.6301</correlation_with_target>
+    </variable>
+    <variable name="smoking_years">
+      <type>numeric</type>
+      <mean>8.82</mean>
+      <median>0.00</median>
+      <std>11.65</std>
+      <min>0.00</min>
+      <max>52.00</max>
+      <correlation_with_target>0.7216</correlation_with_target>
+    </variable>
+    <variable name="cigarettes_per_day">
+      <type>numeric</type>
+      <mean>6.69</mean>
+      <median>0.00</median>
+      <std>9.03</std>
+      <min>0.00</min>
+      <max>44.00</max>
+      <correlation_with_target>0.7510</correlation_with_target>
+    </variable>
+    <variable name="pack_years">
+      <type>numeric</type>
+      <mean>6.25</mean>
+      <median>0.00</median>
+      <std>9.96</std>
+      <min>0.00</min>
+      <max>60.00</max>
+      <correlation_with_target>0.8307</correlation_with_target>
+    </variable>
+    <variable name="passive_smoking">
+      <type>numeric</type>
+      <mean>0.35</mean>
+      <median>0.00</median>
+      <std>0.48</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.0326</correlation_with_target>
+    </variable>
+    <variable name="air_pollution_index">
+      <type>numeric</type>
+      <mean>64.28</mean>
+      <median>64.00</median>
+      <std>19.48</std>
+      <min>20.00</min>
+      <max>130.00</max>
+      <correlation_with_target>0.0501</correlation_with_target>
+    </variable>
+    <variable name="occupational_exposure">
+      <type>numeric</type>
+      <mean>0.25</mean>
+      <median>0.00</median>
+      <std>0.43</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.0117</correlation_with_target>
+    </variable>
+    <variable name="radon_exposure">
+      <type>numeric</type>
+      <mean>0.14</mean>
+      <median>0.00</median>
+      <std>0.35</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.0472</correlation_with_target>
+    </variable>
+    <variable name="family_history_cancer">
+      <type>numeric</type>
+      <mean>0.20</mean>
+      <median>0.00</median>
+      <std>0.40</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.0632</correlation_with_target>
+    </variable>
+    <variable name="copd">
+      <type>numeric</type>
+      <mean>0.16</mean>
+      <median>0.00</median>
+      <std>0.37</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.6164</correlation_with_target>
+    </variable>
+    <variable name="asthma">
+      <type>numeric</type>
+      <mean>0.15</mean>
+      <median>0.00</median>
+      <std>0.35</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.0021</correlation_with_target>
+    </variable>
+    <variable name="previous_tb">
+      <type>numeric</type>
+      <mean>0.09</mean>
+      <median>0.00</median>
+      <std>0.29</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>-0.0027</correlation_with_target>
+    </variable>
+    <variable name="chronic_cough">
+      <type>numeric</type>
+      <mean>0.17</mean>
+      <median>0.00</median>
+      <std>0.38</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.6296</correlation_with_target>
+    </variable>
+    <variable name="chest_pain">
+      <type>numeric</type>
+      <mean>0.25</mean>
+      <median>0.00</median>
+      <std>0.43</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.0051</correlation_with_target>
+    </variable>
+    <variable name="shortness_of_breath">
+      <type>numeric</type>
+      <mean>0.20</mean>
+      <median>0.00</median>
+      <std>0.40</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.6590</correlation_with_target>
+    </variable>
+    <variable name="fatigue">
+      <type>numeric</type>
+      <mean>0.40</mean>
+      <median>0.00</median>
+      <std>0.49</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>-0.0046</correlation_with_target>
+    </variable>
+    <variable name="bmi">
+      <type>numeric</type>
+      <mean>23.60</mean>
+      <median>24.00</median>
+      <std>3.94</std>
+      <min>16.00</min>
+      <max>37.00</max>
+      <correlation_with_target>-0.0239</correlation_with_target>
+    </variable>
+    <variable name="oxygen_saturation">
+      <type>numeric</type>
+      <mean>96.09</mean>
+      <median>97.00</median>
+      <std>3.41</std>
+      <min>85.00</min>
+      <max>100.00</max>
+      <correlation_with_target>-0.7663</correlation_with_target>
+    </variable>
+    <variable name="fev1_x10">
+      <type>numeric</type>
+      <mean>31.48</mean>
+      <median>33.00</median>
+      <std>5.21</std>
+      <min>5.00</min>
+      <max>37.00</max>
+      <correlation_with_target>-0.7870</correlation_with_target>
+    </variable>
+    <variable name="crp_level">
+      <type>numeric</type>
+      <mean>4.59</mean>
+      <median>3.00</median>
+      <std>5.33</std>
+      <min>0.00</min>
+      <max>33.00</max>
+      <correlation_with_target>0.7804</correlation_with_target>
+    </variable>
+    <variable name="xray_abnormal">
+      <type>numeric</type>
+      <mean>0.20</mean>
+      <median>0.00</median>
+      <std>0.40</std>
+      <min>0.00</min>
+      <max>1.00</max>
+      <correlation_with_target>0.7480</correlation_with_target>
+    </variable>
+    <variable name="exercise_hours_per_week">
+      <type>numeric</type>
+      <mean>2.58</mean>
+      <median>2.00</median>
+      <std>1.83</std>
+      <min>0.00</min>
+      <max>10.00</max>
+      <correlation_with_target>-0.0439</correlation_with_target>
+    </variable>
+    <variable name="diet_quality">
+      <type>numeric</type>
+      <mean>2.53</mean>
+      <median>3.00</median>
+      <std>0.99</std>
+      <min>1.00</min>
+      <max>5.00</max>
+      <correlation_with_target>-0.0072</correlation_with_target>
+    </variable>
+    <variable name="alcohol_units_per_week">
+      <type>numeric</type>
+      <mean>5.88</mean>
+      <median>6.00</median>
+      <std>4.42</std>
+      <min>0.00</min>
+      <max>23.00</max>
+      <correlation_with_target>0.0141</correlation_with_target>
+    </variable>
+    <variable name="healthcare_access">
+      <type>numeric</type>
+      <mean>2.54</mean>
+      <median>3.00</median>
+      <std>0.98</std>
+      <min>1.00</min>
+      <max>5.00</max>
+      <correlation_with_target>-0.0196</correlation_with_target>
+    </variable>
+    <variable name="lung_cancer_risk">
+      <type>numeric</type>
+      <mean>0.25</mean>
+      <median>0.00</median>
+      <std>0.43</std>
+      <min>0.00</min>
+      <max>1.00</max>
+    </variable>
+  </variables_statistics>
+  <group_analyses>
+    <by_gender>
+      <group label="Femme" count="2559">
+        <risk_rate>23.84%</risk_rate>
+        <mean_age>54.3</mean_age>
+        <smoker_rate>45.25%</smoker_rate>
+      </group>
+      <group label="Homme" count="2441">
+        <risk_rate>25.97%</risk_rate>
+        <mean_age>54.8</mean_age>
+        <smoker_rate>45.72%</smoker_rate>
+      </group>
+    </by_gender>
+    <by_smoking_status>
+      <group label="Non-fumeur" count="2726">
+        <risk_rate>0.00%</risk_rate>
+        <mean_pack_years>0.0</mean_pack_years>
+      </group>
+      <group label="Fumeur" count="2274">
+        <risk_rate>54.71%</risk_rate>
+        <mean_pack_years>13.7</mean_pack_years>
+      </group>
+    </by_smoking_status>
+    <by_family_history>
+      <group label="Sans antécédents" count="3983">
+        <risk_rate>23.50%</risk_rate>
+      </group>
+      <group label="Avec antécédents" count="1017">
+        <risk_rate>30.29%</risk_rate>
+      </group>
+    </by_family_history>
+  </group_analyses>
+  <feature_importance>
+    <top_correlated_features>
+      <feature rank="1" name="pack_years" correlation="0.8307">
+        <mean_high_risk>20.63</mean_high_risk>
+        <mean_low_risk>1.49</mean_low_risk>
+      </feature>
+      <feature rank="2" name="fev1_x10" correlation="0.7870">
+        <mean_high_risk>24.35</mean_high_risk>
+        <mean_low_risk>33.84</mean_low_risk>
+      </feature>
+      <feature rank="3" name="crp_level" correlation="0.7804">
+        <mean_high_risk>11.83</mean_high_risk>
+        <mean_low_risk>2.20</mean_low_risk>
+      </feature>
+      <feature rank="4" name="oxygen_saturation" correlation="0.7663">
+        <mean_high_risk>91.55</mean_high_risk>
+        <mean_low_risk>97.59</mean_low_risk>
+      </feature>
+      <feature rank="5" name="cigarettes_per_day" correlation="0.7510">
+        <mean_high_risk>18.47</mean_high_risk>
+        <mean_low_risk>2.78</mean_low_risk>
+      </feature>
+      <feature rank="6" name="xray_abnormal" correlation="0.7480">
+        <mean_high_risk>0.72</mean_high_risk>
+        <mean_low_risk>0.03</mean_low_risk>
+      </feature>
+      <feature rank="7" name="smoking_years" correlation="0.7216">
+        <mean_high_risk>23.43</mean_high_risk>
+        <mean_low_risk>3.98</mean_low_risk>
+      </feature>
+      <feature rank="8" name="shortness_of_breath" correlation="0.6590">
+        <mean_high_risk>0.66</mean_high_risk>
+        <mean_low_risk>0.05</mean_low_risk>
+      </feature>
+      <feature rank="9" name="smoker" correlation="0.6301">
+        <mean_high_risk>1.00</mean_high_risk>
+        <mean_low_risk>0.27</mean_low_risk>
+      </feature>
+      <feature rank="10" name="chronic_cough" correlation="0.6296">
+        <mean_high_risk>0.59</mean_high_risk>
+        <mean_low_risk>0.04</mean_low_risk>
+      </feature>
+    </top_correlated_features>
+  </feature_importance>
+  <representative_sample>
+    <description>Échantillon de 10 patients représentatifs (5 à risque faible, 5 à risque élevé)</description>
+    <patients>
+      <patient id="S01" risk="0">
+        <age>64</age>
+        <gender>0</gender>
+        <smoker>0</smoker>
+        <pack_years>0</pack_years>
+        <family_history_cancer>1</family_history_cancer>
+        <xray_abnormal>0</xray_abnormal>
+        <bmi>19</bmi>
+        <oxygen_saturation>97</oxygen_saturation>
+      </patient>
+      <patient id="S02" risk="0">
+        <age>68</age>
+        <gender>1</gender>
+        <smoker>0</smoker>
+        <pack_years>0</pack_years>
+        <family_history_cancer>1</family_history_cancer>
+        <xray_abnormal>0</xray_abnormal>
+        <bmi>22</bmi>
+        <oxygen_saturation>96</oxygen_saturation>
+      </patient>
+      <patient id="S03" risk="0">
+        <age>50</age>
+        <gender>0</gender>
+        <smoker>1</smoker>
+        <pack_years>6</pack_years>
+        <family_history_cancer>0</family_history_cancer>
+        <xray_abnormal>0</xray_abnormal>
+        <bmi>24</bmi>
+        <oxygen_saturation>98</oxygen_saturation>
+      </patient>
+      <patient id="S04" risk="0">
+        <age>61</age>
+        <gender>0</gender>
+        <smoker>0</smoker>
+        <pack_years>0</pack_years>
+        <family_history_cancer>0</family_history_cancer>
+        <xray_abnormal>0</xray_abnormal>
+        <bmi>23</bmi>
+        <oxygen_saturation>99</oxygen_saturation>
+      </patient>
+      <patient id="S05" risk="0">
+        <age>48</age>
+        <gender>1</gender>
+        <smoker>0</smoker>
+        <pack_years>0</pack_years>
+        <family_history_cancer>0</family_history_cancer>
+        <xray_abnormal>0</xray_abnormal>
+        <bmi>20</bmi>
+        <oxygen_saturation>97</oxygen_saturation>
+      </patient>
+      <patient id="S06" risk="1">
+        <age>36</age>
+        <gender>0</gender>
+        <smoker>1</smoker>
+        <pack_years>18</pack_years>
+        <family_history_cancer>0</family_history_cancer>
+        <xray_abnormal>1</xray_abnormal>
+        <bmi>28</bmi>
+        <oxygen_saturation>94</oxygen_saturation>
+      </patient>
+      <patient id="S07" risk="1">
+        <age>71</age>
+        <gender>1</gender>
+        <smoker>1</smoker>
+        <pack_years>21</pack_years>
+        <family_history_cancer>0</family_history_cancer>
+        <xray_abnormal>1</xray_abnormal>
+        <bmi>24</bmi>
+        <oxygen_saturation>93</oxygen_saturation>
+      </patient>
+      <patient id="S08" risk="1">
+        <age>51</age>
+        <gender>1</gender>
+        <smoker>1</smoker>
+        <pack_years>13</pack_years>
+        <family_history_cancer>0</family_history_cancer>
+        <xray_abnormal>1</xray_abnormal>
+        <bmi>25</bmi>
+        <oxygen_saturation>93</oxygen_saturation>
+      </patient>
+      <patient id="S09" risk="1">
+        <age>65</age>
+        <gender>1</gender>
+        <smoker>1</smoker>
+        <pack_years>10</pack_years>
+        <family_history_cancer>1</family_history_cancer>
+        <xray_abnormal>1</xray_abnormal>
+        <bmi>28</bmi>
+        <oxygen_saturation>97</oxygen_saturation>
+      </patient>
+      <patient id="S10" risk="1">
+        <age>53</age>
+        <gender>1</gender>
+        <smoker>1</smoker>
+        <pack_years>17</pack_years>
+        <family_history_cancer>0</family_history_cancer>
+        <xray_abnormal>1</xray_abnormal>
+        <bmi>25</bmi>
+        <oxygen_saturation>93</oxygen_saturation>
+      </patient>
+    </patients>
+  </representative_sample>
+  <category_summaries>
+    <demographics>
+      <mean_age>54.6</mean_age>
+      <age_range>18-90</age_range>
+      <gender_distribution female="2559" male="2441"/>
+    </demographics>
+    <smoking>
+      <smoker_rate>45.48%</smoker_rate>
+      <mean_smoking_years>19.4</mean_smoking_years>
+      <mean_pack_years>13.7</mean_pack_years>
+    </smoking>
+    <clinical>
+      <mean_bmi>23.6</mean_bmi>
+      <mean_oxygen_saturation>96.1</mean_oxygen_saturation>
+      <xray_abnormal_rate>20.14%</xray_abnormal_rate>
+    </clinical>
+  </category_summaries>
+  <recommendations>
+    <data_quality>Excellent - Aucune valeur manquante</data_quality>
+    <class_imbalance>Déséquilibre détecté (ratio 3.02:1) - Considérer rééchantillonnage</class_imbalance>
+    <key_risk_factors>Facteurs de risque principaux: pack_years, fev1_x10, crp_level, oxygen_saturation, cigarettes_per_day</key_risk_factors>
+  </recommendations>
+</lung_cancer_dataset>

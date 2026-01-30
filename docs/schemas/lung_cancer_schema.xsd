@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://lung-cancer-dataset.org/schema"
+           xmlns:lcd="http://lung-cancer-dataset.org/schema">
+
+  <!-- Élément racine -->
+  <xs:element name="lung_cancer_dataset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" type="lcd:metadataType" minOccurs="0"/>
+        <xs:element name="patients" type="lcd:patientsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Type pour les métadonnées -->
+  <xs:complexType name="metadataType">
+    <xs:sequence>
+      <xs:element name="source_file" type="xs:string"/>
+      <xs:element name="conversion_date" type="xs:dateTime"/>
+      <xs:element name="format_version" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour la collection de patients -->
+  <xs:complexType name="patientsType">
+    <xs:sequence>
+      <xs:element name="patient" type="lcd:patientType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour un patient -->
+  <xs:complexType name="patientType">
+    <xs:sequence>
+      <xs:element name="demographics" type="lcd:demographicsType"/>
+      <xs:element name="smoking_history" type="lcd:smokingHistoryType"/>
+      <xs:element name="environmental_exposures" type="lcd:environmentalExposuresType"/>
+      <xs:element name="medical_history" type="lcd:medicalHistoryType"/>
+      <xs:element name="symptoms" type="lcd:symptomsType"/>
+      <xs:element name="clinical_parameters" type="lcd:clinicalParametersType"/>
+      <xs:element name="lifestyle" type="lcd:lifestyleType"/>
+      <xs:element name="outcome" type="lcd:outcomeType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Type pour les données démographiques -->
+  <xs:complexType name="demographicsType">
+    <xs:sequence>
+      <xs:element name="age" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Age du patient en années (généralement 18-100)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gender" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Genre: 0=Femme, 1=Homme</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="education_years" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Nombre d'années d'éducation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="income_level" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Niveau de revenu: 1=Faible, 2=Moyen, 3=Élevé, 4=Très élevé</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour l'historique de tabagisme -->
+  <xs:complexType name="smokingHistoryType">
+    <xs:sequence>
+      <xs:element name="smoker" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Statut fumeur: 0=Non-fumeur, 1=Fumeur</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="smoking_years" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Nombre d'années de tabagisme</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cigarettes_per_day" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Nombre de cigarettes par jour</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pack_years" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Paquets-années (mesure cumulative)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="passive_smoking" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Tabagisme passif: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour les expositions environnementales -->
+  <xs:complexType name="environmentalExposuresType">
+    <xs:sequence>
+      <xs:element name="air_pollution_index" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Indice de pollution de l'air</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="occupational_exposure" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Exposition professionnelle: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="radon_exposure" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Exposition au radon: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour l'historique médical -->
+  <xs:complexType name="medicalHistoryType">
+    <xs:sequence>
+      <xs:element name="family_history_cancer" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Antécédents familiaux de cancer: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="copd" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>BPCO: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="asthma" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Asthme: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previous_tb" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Antécédents de tuberculose: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour les symptômes -->
+  <xs:complexType name="symptomsType">
+    <xs:sequence>
+      <xs:element name="chronic_cough" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Toux chronique: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chest_pain" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Douleur thoracique: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="shortness_of_breath" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Essoufflement: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fatigue" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Fatigue: 0=Non, 1=Oui</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour les paramètres cliniques -->
+  <xs:complexType name="clinicalParametersType">
+    <xs:sequence>
+      <xs:element name="bmi" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Indice de masse corporelle (kg/m²)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="oxygen_saturation" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Saturation en oxygène (%)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fev1_x10" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>FEV1 multiplié par 10</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="crp_level" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Niveau de protéine C-réactive (mg/L)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="xray_abnormal" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Radiographie anormale: 0=Normal, 1=Anormal</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour le mode de vie -->
+  <xs:complexType name="lifestyleType">
+    <xs:sequence>
+      <xs:element name="exercise_hours_per_week" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Heures d'exercice par semaine</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="diet_quality" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Qualité de l'alimentation: 1-5</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="alcohol_units_per_week" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Unités d'alcool par semaine</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="healthcare_access" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Accès aux soins: 1-4</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type pour le résultat (variable cible) -->
+  <xs:complexType name="outcomeType">
+    <xs:sequence>
+      <xs:element name="lung_cancer_risk" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Risque de cancer du poumon: 0=Faible risque, 1=Risque élevé</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
