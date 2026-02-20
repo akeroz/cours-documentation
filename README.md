@@ -2,21 +2,15 @@
 
 ## 📑 Table des Matières
 
-1. [Vue d'ensemble du Projet](#-vue-densemble-du-projet)
+1. [Vue d'ensemble](#-vue-densemble-du-projet)
 2. [Structure du Projet](#-structure-complète-du-projet)
-3. [Installation et Configuration](#-installation-et-configuration)
-4. [Guide Complet : Ce qui a été fait](#-guide-complet--ce-qui-a-été-fait)
-   - [Phase 1 : Exploration](#phase-1--exploration-et-préparation-)
-   - [Phase 2 : Nettoyage](#phase-2--nettoyage-et-normalisation-)
-   - [Phase 3 : Entraînement](#phase-3--entraînement-des-modèles-)
-   - [Phase 4 : Model Cards](#phase-4--model-cards-)
-   - [Phase 5 : Visualisations](#phase-5--visualisations-des-modèles-)
-5. [Workflow Complet](#-workflow-complet-ordre-dexécution)
+3. [Installation](#-installation-et-configuration)
+4. [Guide : Ce qui a été fait](#-guide-complet--ce-qui-a-été-fait)
+5. [Workflow et Pipeline](#-workflow-complet-ordre-dexécution)
 6. [Dataset et Glossaire](#-dataset)
-7. [Documentation Disponible](#-documentation-disponible)
+7. [Documentation](#-documentation-disponible)
 8. [Utilisation des Modèles](#-utilisation-des-modèles)
 9. [Conclusion et Perspectives](#-conclusion-globale)
-10. [FAQ](#-questions-fréquentes)
 
 ---
 
@@ -134,16 +128,9 @@ Les dépendances incluent :
 - `generate_visualizations.py` : Génère 8 graphiques exploratoires
 
 **Résultats :**
-- ✅ Rapport d'exploration complet (`docs/exploration/rapport_exploration.md`)
-- ✅ Data Cards en YAML et JSON (`docs/data_cards/`)
-- ✅ 8 visualisations exploratoires (`docs/visualizations/`)
-
-**Pour reproduire :**
-```bash
-python scripts/exploratory_analysis.py
-python scripts/generate_data_cards.py
-python scripts/generate_visualizations.py
-```
+- Rapport d'exploration : `docs/exploration/rapport_exploration.md`
+- Data Cards : `docs/data_cards/`
+- 8 visualisations : `docs/visualizations/`
 
 ---
 
@@ -166,16 +153,9 @@ python scripts/generate_visualizations.py
    - Variables binaires et catégorielles conservées telles quelles
 
 **Fichiers générés :**
-- `data/processed/lung_cancer_cleaned.csv` : Dataset nettoyé (5000 lignes, 30 colonnes)
-- `data/processed/lineage.json` : Traçabilité complète des transformations
+- `data/processed/lung_cancer_cleaned.csv` : Dataset nettoyé
+- `data/processed/lineage.json` : Traçabilité des transformations
 - `docs/preprocessing/documentation_nettoyage.md` : Documentation détaillée
-
-**Pour reproduire :**
-```bash
-python scripts/preprocess_data.py
-```
-
-**Documentation :** Voir `docs/preprocessing/documentation_nettoyage.md` pour tous les détails.
 
 ---
 
@@ -231,14 +211,9 @@ Le **Random Forest Classifier** a été choisi pour ce projet pour les raisons s
 - **Split train/test :** 80% / 20% (avec stratification)
 
 **Fichiers générés :**
-- `models/model_family_history_cancer.pkl` : Modèle entraîné (binaire)
-- `models/model_smoker.pkl` : Modèle entraîné (binaire)
-- `models/models_metadata.json` : Toutes les métriques et hyperparamètres
-
-**Pour reproduire :**
-```bash
-python scripts/train_models.py
-```
+- `models/model_family_history_cancer.pkl` : Modèle entraîné
+- `models/model_smoker.pkl` : Modèle entraîné
+- `models/models_metadata.json` : Métriques et hyperparamètres
 
 ### ⚠️ Analyse critique des performances à 100%
 
@@ -273,55 +248,13 @@ Les deux modèles affichent une précision de **100%**, ce qui est exceptionnel 
 
 ### Phase 4 : Model Cards ✅
 
-**Objectif :** Documenter complètement les modèles
-
-**Script utilisé :** `generate_model_cards.py`
-
-**Contenu des Model Cards :**
-
-Chaque Model Card répond aux questions suivantes :
-
-1. **Quand a-t-il été développé ?**
-   - Date de développement
-   - Contexte du projet
-
-2. **Quelle architecture ?**
-   - Algorithme utilisé (Random Forest)
-   - Bibliothèque (scikit-learn)
-   - Hyperparamètres optimisés
-
-3. **Sur quelles données ?**
-   - Dataset source et nettoyé
-   - Nombre d'échantillons (5000)
-   - Split train/test (80/20)
-   - Distribution des classes
-   - Préprocessing appliqué
-
-4. **Quelles métriques de performance ?**
-   - Accuracy, Precision, Recall, F1-Score, ROC-AUC
-   - Validation croisée
-   - Matrice de confusion
-
-5. **Quels hyperparamètres ?**
-   - Valeurs finales sélectionnées
-   - Méthode de recherche (GridSearchCV)
-
-6. **Comment ont-ils été trouvés ?**
-   - GridSearchCV avec validation croisée 5-fold
-   - Optimisation sur le F1-Score
+**Script :** `generate_model_cards.py`
 
 **Fichiers générés :**
-- `docs/model_cards/model_card_family_history_cancer.md`
-- `docs/model_cards/model_card_smoker.md`
+- [model_card_family_history_cancer.md](docs/model_cards/model_card_family_history_cancer.md)
+- [model_card_smoker.md](docs/model_cards/model_card_smoker.md)
 
-**Pour reproduire :**
-```bash
-python scripts/generate_model_cards.py
-```
-
-**Documentation :** Voir les fichiers dans `docs/model_cards/` pour tous les détails.
-
-> **📌 Amélioration recommandée** : Convertir les Model Cards au format **YAML ou JSON** (comme les Data Cards) pour une meilleure interopérabilité et un traitement automatisé. Les Model Cards en Markdown sont lisibles mais moins exploitables par des outils de CI/CD ou des registres de modèles.
+> **📌 Amélioration recommandée** : Convertir les Model Cards au format YAML ou JSON pour une meilleure interopérabilité.
 
 ---
 
@@ -389,15 +322,7 @@ python scripts/generate_model_cards.py
 
 ![Top Features - Smoker](docs/visualizations/model_smoker/smoker_top_features.png)
 
-*Features discriminantes entre fumeurs et non-fumeurs. Utile pour valider que le modèle utilise des variables médicalement pertinentes.*
-
----
-
-**Pour reproduire :**
-```bash
-python scripts/visualize_model_family_history.py
-python scripts/visualize_model_smoker.py
-```
+*Features discriminantes entre fumeurs et non-fumeurs.*
 
 ---
 
@@ -567,24 +492,6 @@ print(f"Probabilités: {probabilities[:10]}")
 
 ---
 
-## 🔍 Comprendre les Résultats
-
-### Performance des Modèles
-
-Les deux modèles ont obtenu **100% de précision**, ce qui est exceptionnel. Cela signifie :
-- ✅ Toutes les prédictions sont correctes sur le jeu de test
-- ✅ Aucune erreur de classification
-- ⚠️ Possible surapprentissage (mais la validation croisée confirme aussi 100%)
-
-### Interprétation
-
-Pour comprendre pourquoi les modèles sont si performants :
-1. Consulter les **graphiques d'importance des features** dans `docs/visualizations/`
-2. Lire les **Model Cards** pour voir quelles variables sont les plus importantes
-3. Examiner les **matrices de confusion** pour voir la répartition des prédictions
-
----
-
 ## 🎯 Conclusion Globale
 
 ### Synthèse du projet
@@ -596,13 +503,6 @@ Ce projet a permis de développer une pipeline complète d'analyse et de modéli
 - ✅ Documentation standardisée (Data Cards, Model Cards)
 - ✅ Visualisations exploratoires et explicatives
 
-### Modèle recommandé pour la suite
-
-| Critère | Recommandation |
-|---------|----------------|
-| **Modèle à privilégier** | Aucun en l'état - investigation de la fuite de données requise |
-| **Si fuite corrigée** | Random Forest reste un bon choix de baseline |
-| **Alternative à tester** | XGBoost ou LightGBM pour potentiellement de meilleures performances |
 
 ### Limites identifiées
 
@@ -620,7 +520,7 @@ Pour un usage médical pertinent, il faudrait :
 
 ---
 
-## 🚧 Prochaines Étapes Concrètes
+## 🚧 Prochaines Étapes
 
 ### Priorité 1 : Correction de la fuite de données
 
@@ -648,73 +548,8 @@ Pour un usage médical pertinent, il faudrait :
 
 ---
 
-## ❓ Questions Fréquentes
-
-### Comment utiliser les modèles ?
-
-Voir la section **"Utilisation des Modèles"** ci-dessus.
-
-### Où sont les graphiques ?
-
-- Graphiques exploratoires : `docs/visualizations/` (8 fichiers)
-- Graphiques modèle 1 : `docs/visualizations/model_family_history/` (4 fichiers)
-- Graphiques modèle 2 : `docs/visualizations/model_smoker/` (4 fichiers)
-
-### Comment comprendre ce qui a été fait ?
-
-1. Lire ce README en entier
-2. Consulter `docs/plan_analyse.md` pour la méthodologie
-3. Lire les Model Cards dans `docs/model_cards/`
-4. Examiner les graphiques dans `docs/visualizations/`
-
-### Les modèles sont-ils prêts à être utilisés ?
-
-Oui, les modèles sont entraînés et sauvegardés. Cependant :
-- ⚠️ Les performances à 100% peuvent indiquer un surapprentissage
-- ⚠️ Il faudrait tester sur de nouvelles données pour valider
-- ✅ Les Model Cards documentent toutes les limitations
-
-### Comment reproduire les résultats ?
-
-Suivre le **Workflow Complet** ci-dessus dans l'ordre indiqué.
-
----
-
-## 📞 Support et Contact
-
-Pour toute question sur ce projet :
-1. Consulter la documentation dans `docs/`
-2. Lire les commentaires dans les scripts Python
-3. Examiner les fichiers de métadonnées (JSON, YAML)
-
----
-
-## 📄 Licence
-
-À définir
-
 ## 👥 Auteurs
-
-| Rôle | Nom | Contact |
-|------|-----|---------|
-| Équipe d'analyse | À compléter | À compléter |
-| Superviseur | À compléter | À compléter |
-
-*Projet réalisé dans le cadre du Master - 2026*
-
----
-
-## 📝 Notes Finales
-
-Ce projet a été conçu pour être **autonome et compréhensible**. Toute l'information nécessaire pour comprendre et continuer le projet se trouve dans :
-
-1. **Ce README** : Vue d'ensemble complète
-2. **La documentation** : Fichiers dans `docs/`
-3. **Les scripts** : Commentaires dans le code
-4. **Les métadonnées** : Fichiers JSON/YAML
-
-**Objectif atteint :** Un professeur ou un nouveau développeur peut comprendre et continuer ce projet sans avoir besoin de consulter les auteurs.
-
----
+MartIn
+Arthur
 
 *Dernière mise à jour: 2026-02-20*
